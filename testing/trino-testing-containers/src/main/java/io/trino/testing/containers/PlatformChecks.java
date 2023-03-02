@@ -47,7 +47,7 @@ public class PlatformChecks
         String imageArch = getImageArch(client, dockerImageName);
 
         boolean isJavaOnArm = isARM();
-        boolean isImageArmBased = imageArch.contains("arm");
+        boolean isImageArmBased = imageArch.contains("arm") || imageArch.contains("aarch");
         boolean hasIncompatibleRuntime = (isJavaOnArm != isImageArmBased);
 
         if (hasIncompatibleRuntime) {
